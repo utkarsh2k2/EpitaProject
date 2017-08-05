@@ -1,0 +1,87 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * IntakeYear
+ * 
+ * @ORM\Table(name = "intake_year")
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\IntakeYearRepository")
+ */
+class IntakeYear {
+
+    /**
+     * @var int
+     *    
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @var bool
+     * 
+     * @ORM\Column(name="enabled", type="boolean")
+     */
+    protected $enabled = true;
+    
+    /**
+     * @var int
+     * 
+     * @ORM\Column(name="start_day", type="integer")
+     */
+    protected $startday;
+
+    /**
+     * @var int
+     * 
+     * @ORM\Column(name="start_month", type="integer")
+     */
+    protected $startmonth;
+            
+    /**
+     * @var int
+     * 
+     * @ORM\Column(name="start_year", type="integer")
+     */
+    protected $startyear;
+    
+    /**
+     * @var int
+     * 
+     * @ORM\Column(name="end_day", type="integer")
+     */
+    protected $endday;
+
+    /**
+     * @var int
+     * 
+     * @ORM\Column(name="end_month", type="integer")
+     */
+    protected $endmonth;
+            
+    /**
+     * @var int
+     * 
+     * @ORM\Column(name="end_year", type="integer")
+     */
+    protected $endyear;
+    
+    /**
+     * @var int
+     * 
+     * @ORM\Column(name="true_year", type="integer")
+     */
+    protected $trueyear;
+            
+    /**
+     * @var int
+     * 
+     * @ORM\Column(name="false_year", type="integer")
+     */
+    protected $falseyear;
+}
+

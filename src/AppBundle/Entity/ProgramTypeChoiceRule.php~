@@ -1,0 +1,137 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ProgramTypeChoiceRule
+ * 
+ * @ORM\Table(name = "program_type_choice_rule")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ProgramTypeChoiceRuleRepository")
+ */
+class ProgramTypeChoiceRule {
+
+    /**
+     * @var int
+     *    
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    
+    /**
+     * Many ProgramTypeChoiceRules have One ProgramType.
+     * @ORM\ManyToOne(targetEntity="ProgramType", inversedBy="programtypechoicerules")
+     * @ORM\JoinColumn(name="program_type", referencedColumnName="id")
+     */
+    protected $programtype;
+    
+    /** 
+     * Many ProgramTypeChoiceRules have One ProgramOfInterest.
+     * @ORM\ManyToOne(targetEntity="ProgramOfInterest", inversedBy="programtypechoicerules")
+     * @ORM\JoinColumn(name="program_of_interest", referencedColumnName="id")
+     */
+    protected $programofinterest;
+    
+    /**
+     * Many ProgramTypeChoiceRules have One DesiredIntake.
+     * @ORM\ManyToOne(targetEntity="DesiredIntake", inversedBy="programtypechoicerules")
+     * @ORM\JoinColumn(name="desired_intake", referencedColumnName="id")
+     */
+    protected $desiredintake;
+
+    /**
+     * @var bool
+     * 
+     * @ORM\Column(name="enabled", type="boolean")
+     */
+    protected $enabled = true;
+    
+    /**
+     * @var int
+     * 
+     * @ORM\Column(name="intake_year", type="integer", nullable=true)
+     */
+    protected $intakeyear;
+    
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set enabled
+     *
+     * @param boolean $enabled
+     * @return ProgramTypeChoiceRule
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return boolean 
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * Set intakeyear
+     *
+     * @param integer $intakeyear
+     * @return ProgramTypeChoiceRule
+     */
+    public function setIntakeyear($intakeyear)
+    {
+        $this->intakeyear = $intakeyear;
+
+        return $this;
+    }
+
+    /**
+     * Get intakeyear
+     *
+     * @return integer 
+     */
+    public function getIntakeyear()
+    {
+        return $this->intakeyear;
+    }
+
+    /**
+     * Set programtype
+     *
+     * @param \AppBundle\Entity\ProgramType $programtype
+     * @return ProgramTypeChoiceRule
+     */
+    public function setProgramtype(\AppBundle\Entity\ProgramType $programtype = null)
+    {
+        $this->programtype = $programtype;
+
+        return $this;
+    }
+
+    /**
+     * Get programtype
+     *
+     * @return \AppBundle\Entity\ProgramType 
+     */
+    public function getProgramtype()
+    {
+        return $this->programtype;
+    }
+}

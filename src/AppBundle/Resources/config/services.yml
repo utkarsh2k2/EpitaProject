@@ -1,0 +1,7 @@
+parameters:
+#    intakeyear.class : AppBundle\Library\GetIntakeYear
+    
+services:
+#    intakeyear_utility:
+#        class:        %intakeyear.class%
+#        arguments : []
